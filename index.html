@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZorBattle - Future of Esports</title>
+
+<!-- Bootstrap & Owl Carousel CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+html, body {
+    margin:0;
+    padding:0;
+    font-family: 'Roboto', sans-serif;
+    height:100%;
+    background: #0b0f1a;
+    color:#fff;
+    scroll-behavior: smooth;
+}
+
+/* Hero Section */
+.hero {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background: linear-gradient(135deg,#0b0f1a,#121829);
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    z-index: 999;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-left {
+    display:flex;
+    align-items:center;
+}
+
+.hero-left img {
+    width:70px;
+    border-radius:50%;
+    margin-right:20px;
+    border:2px solid #00ffcc;
+}
+
+.hero-left h1 {
+    font-size:28px;
+    color:#00ffcc;
+    margin:0;
+}
+
+.download-btn {
+    background:#00ffcc;
+    color:#000;
+    font-weight:bold;
+    font-size:16px;
+    padding:12px 25px;
+    border-radius:50px;
+    text-decoration:none;
+    transition:0.3s;
+    margin-left:20px;
+}
+
+.download-btn:hover {
+    background:#00e6b8;
+    text-decoration:none;
+}
+
+/* Hero Placeholder */
+.hero-placeholder {
+    height:100px;
+}
+
+/* Section Styling */
+section {
+    padding:100px 50px;
+    text-align:center;
+}
+
+.section-title {
+    font-size:36px;
+    color:#00ffcc;
+    margin-bottom:30px;
+}
+
+.section-subtitle {
+    font-size:18px;
+    opacity:0.8;
+    margin-bottom:50px;
+}
+
+/* App Preview Carousel */
+#screenshots .owl-carousel .item {
+    height:500px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+#screenshots .owl-carousel .item img {
+    max-height:100%;
+    max-width:100%;
+    object-fit:contain;
+    border-radius:15px;
+    border:2px solid #00ffcc;
+}
+
+/* Features Cards */
+.features-cards {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:20px;
+}
+
+.feature-card {
+    background:#121829;
+    border:2px solid #00ffcc;
+    border-radius:15px;
+    padding:20px;
+    width:250px;
+    transition:0.3s;
+}
+
+.feature-card:hover {
+    transform:translateY(-10px);
+}
+
+.feature-card i {
+    font-size:36px;
+    color:#00ffcc;
+    margin-bottom:15px;
+}
+
+.feature-card h4 {
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.feature-card p {
+    font-size:14px;
+    opacity:0.8;
+}
+
+/* How To Play Section */
+.play-steps {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+.play-step {
+    background:#121829;
+    border:2px solid #00ffcc;
+    border-radius:15px;
+    padding:20px;
+    width:300px;
+    text-align:left;
+    transition:0.3s;
+}
+
+.play-step:hover {
+    transform:translateY(-10px);
+}
+
+.play-step h4 {
+    color:#00ffcc;
+    margin-bottom:10px;
+}
+
+.play-step ul {
+    list-style:none;
+    padding-left:0;
+}
+
+.play-step ul li {
+    margin-bottom:8px;
+}
+
+/* Rewards Section */
+.rewards-cards {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:30px;
+}
+
+.reward-card {
+    background:#121829;
+    border:2px solid #00ffcc;
+    border-radius:15px;
+    padding:20px;
+    width:250px;
+    text-align:center;
+    transition:0.3s;
+}
+
+.reward-card:hover {
+    transform:translateY(-10px);
+}
+
+.reward-card h4 {
+    color:#00ffcc;
+    margin-bottom:10px;
+}
+
+.reward-card p {
+    font-size:14px;
+    opacity:0.8;
+}
+
+/* Testimonials */
+.testimonial {
+    background:#121829;
+    border:2px solid #00ffcc;
+    border-radius:15px;
+    padding:30px;
+    margin:10px;
+}
+
+.testimonial p {
+    font-style:italic;
+    opacity:0.8;
+}
+
+.testimonial h5 {
+    margin-top:15px;
+    color:#00ffcc;
+}
+
+/* FAQ */
+.faq-item {
+    text-align:left;
+    max-width:700px;
+    margin:20px auto;
+    border-bottom:1px solid #00ffcc;
+    padding-bottom:15px;
+}
+
+.faq-item h5 {
+    color:#00ffcc;
+}
+
+/* Footer */
+footer {
+    background:#121829;
+    padding:50px 50px;
+}
+
+footer p {
+    opacity:0.7;
+}
+
+@media (max-width:768px){
+    .hero {
+        flex-direction:column;
+        align-items:flex-start;
+    }
+    .hero-left {
+        margin-bottom:10px;
+    }
+    .play-steps, .features-cards, .rewards-cards {
+        flex-direction:column;
+        align-items:center;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-left">
+        <img src="https://i.ibb.co/hx1tn2z2/IMG-20260114-230655.jpg" alt="ZorBattle Logo">
+        <h1>ZorBattle</h1>
+        <a href="https://github.com/aaryansingh91/test/raw/refs/heads/main/ZorBattleV16.apk" class="download-btn">Download</a>
+    </div>
+</section>
+
+<div class="hero-placeholder"></div>
+
+<!-- APP PREVIEWS -->
+<section id="screenshots">
+    <h2 class="section-title">App Previews</h2>
+    <p class="section-subtitle">Check out the ZorBattle interface and features.</p>
+    <div class="owl-carousel owl-theme">
+        <div class="item"><img src="https://i.ibb.co/3ykSvpQ0/Screenshot-20260115-174839.jpg" alt="Screenshot 1"></div>
+        <div class="item"><img src="https://i.ibb.co/wrcg5cBh/Screenshot-20260115-174844.jpg" alt="Screenshot 2"></div>
+        <div class="item"><img src="https://i.ibb.co/4Zf4bhWf/Screenshot-20260115-174848.jpg" alt="Screenshot 3"></div>
+        <div class="item"><img src="https://i.ibb.co/h12fVMVD/Screenshot-20260115-174850.jpg" alt="Screenshot 4"></div>
+        <div class="item"><img src="https://i.ibb.co/SDybk5YM/Screenshot-20260115-174853.jpg" alt="Screenshot 5"></div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">About ZorBattle</h2>
+    <p class="section-subtitle">ZorBattle is your ultimate esports platform to play, compete, and win cash prizes in BGMI, Free Fire, and more.</p>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+    <h2 class="section-title">Features</h2>
+    <div class="features-cards">
+        <div class="feature-card"><i class="fa fa-gamepad"></i><h4>Multiple Games</h4><p>Play a variety of mobile games tournaments.</p></div>
+        <div class="feature-card"><i class="fa fa-trophy"></i><h4>Win Prizes</h4><p>Earn cash prizes for your achievements.</p></div>
+        <div class="feature-card"><i class="fa fa-users"></i><h4>Gamer Profile</h4><p>Create profile & showcase your skills.</p></div>
+        <div class="feature-card"><i class="fa fa-bar-chart"></i><h4>Leaderboards</h4><p>Track your rank & performance.</p></div>
+        <div class="feature-card"><i class="fa fa-shield"></i><h4>Fair Play</h4><p>No cheats, no emulators allowed.</p></div>
+    </div>
+</section>
+
+<!-- HOW TO PLAY -->
+<section id="howtoplay">
+    <h2 class="section-title">How to Play</h2>
+    <p class="section-subtitle">Follow these steps to get started.</p>
+    <div class="play-steps">
+        <div class="play-step">
+            <h4>Step 1: Register</h4>
+            <ul>
+                <li>Create free account</li>
+                <li>Connect game account</li>
+            </ul>
+        </div>
+        <div class="play-step">
+            <h4>Step 2: Join Contest</h4>
+            <ul>
+                <li>Pick your preferred game</li>
+                <li>Choose solo/duo mode</li>
+            </ul>
+        </div>
+        <div class="play-step">
+            <h4>Step 3: Compete & Win</h4>
+            <ul>
+                <li>Play the match</li>
+                <li>Win prizes & rewards</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- REWARDS -->
+<section id="rewards">
+    <h2 class="section-title">Cash Prizes & Rewards</h2>
+    <div class="rewards-cards">
+        <div class="reward-card"><h4>Daily Prizes</h4><p>Compete daily to earn cash rewards.</p></div>
+        <div class="reward-card"><h4>Weekly Tournaments</h4><p>Join weekly competitions for bigger prizes.</p></div>
+        <div class="reward-card"><h4>Referral Bonus</h4><p>Invite friends & earn extra rewards.</p></div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+    <h2 class="section-title">Community Feedback</h2>
+    <div class="owl-carousel owl-theme">
+        <div class="testimonial"><p>"ZorBattle is amazing, I won my first prize in 1 day!"</p><h5>- Gamer A</h5></div>
+        <div class="testimonial"><p>"The tournaments are smooth & fair."</p><h5>- Gamer B</h5></div>
+        <div class="testimonial"><p>"Highly recommended for mobile esports."</p><h5>- Gamer C</h5></div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+    <h2 class="section-title">FAQ</h2>
+    <div class="faq-item"><h5>How do I participate?</h5><p>Register and join any available contest.</p></div>
+    <div class="faq-item"><h5>What games are supported?</h5><p>Currently BGMI, Free Fire, and upcoming mobile games.</p></div>
+    <div class="faq-item"><h5>How do I withdraw winnings?</h5><p>Winnings can be withdrawn to your account via supported payment methods.</p></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 ZorBattle | Future of Esports</p>
+    <p>Follow us on <a href="https://t.me/skillclashcare" target="_blank">Telegram</a></p>
+</footer>
+
+<!-- JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:20,
+        nav:true,
+        responsive:{
+            0:{items:1},
+            600:{items:2},
+            1000:{items:3}
+        }
+    });
+});
+</script>
+
+</body>
+</html>
