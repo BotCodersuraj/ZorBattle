@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZorBattle - Future of Esports</title>
+<meta name="description" content="ZorBattle - Play, compete, and win in epic mobile esports tournaments like BGMI & Free Fire. Join now for cash prizes!">
+<meta name="keywords" content="ZorBattle, Esports, Mobile Games, BGMI, Free Fire, Gaming Tournaments, Cash Prizes">
+<meta name="author" content="ZorBattle Team">
+<link rel="canonical" href="https://ZorBattle.vercel.app">
+
+<!-- Social Sharing -->
+<meta property="og:title" content="ZorBattle - Future of Esports">
+<meta property="og:description" content="Compete, play, and win in mobile gaming tournaments. Cash prizes await!">
+<meta property="og:image" content="https://i.ibb.co/hx1tn2z2/IMG-20260114-230655.jpg">
+<meta property="og:url" content="https://ZorBattle.vercel.app">
+<meta name="twitter:card" content="summary_large_image">
 
 <!-- Bootstrap & Owl Carousel CSS -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.2/css/bootstrap.min.css" rel="stylesheet">
@@ -19,12 +30,12 @@ html, body {
     padding:0;
     font-family: 'Roboto', sans-serif;
     height:100%;
-    background: #0b0f1a;
+    background: linear-gradient(135deg,#0b0f1a,#121829);
     color:#fff;
     scroll-behavior: smooth;
 }
 
-/* HERO FIXED TOP */
+/* HERO / FIXED TOP */
 .hero {
     position: fixed;
     top:0;
@@ -32,10 +43,10 @@ html, body {
     width:100%;
     background: linear-gradient(135deg,#0b0f1a,#121829);
     display:flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    z-index: 999;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 50px;
+    z-index:999;
     box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
@@ -47,7 +58,7 @@ html, body {
 .hero-left img {
     width:70px;
     height:70px;
-    border-radius:50%; /* 100% circle */
+    border-radius:50%;
     margin-right:20px;
     border:3px solid #00ffcc;
     object-fit:cover;
@@ -76,7 +87,7 @@ html, body {
     text-decoration:none;
 }
 
-/* Hero placeholder to push content down */
+/* HERO Placeholder for scroll */
 .hero-placeholder {
     height:100px;
 }
@@ -132,25 +143,10 @@ section {
     transition:0.3s;
 }
 
-.feature-card:hover {
-    transform:translateY(-10px);
-}
-
-.feature-card i {
-    font-size:36px;
-    color:#00ffcc;
-    margin-bottom:15px;
-}
-
-.feature-card h4 {
-    font-size:20px;
-    margin-bottom:10px;
-}
-
-.feature-card p {
-    font-size:14px;
-    opacity:0.8;
-}
+.feature-card:hover { transform:translateY(-10px); }
+.feature-card i { font-size:36px; color:#00ffcc; margin-bottom:15px; }
+.feature-card h4 { font-size:20px; margin-bottom:10px; }
+.feature-card p { font-size:14px; opacity:0.8; }
 
 /* How To Play Section */
 .play-steps {
@@ -170,23 +166,10 @@ section {
     transition:0.3s;
 }
 
-.play-step:hover {
-    transform:translateY(-10px);
-}
-
-.play-step h4 {
-    color:#00ffcc;
-    margin-bottom:10px;
-}
-
-.play-step ul {
-    list-style:none;
-    padding-left:0;
-}
-
-.play-step ul li {
-    margin-bottom:8px;
-}
+.play-step:hover { transform:translateY(-10px); }
+.play-step h4 { color:#00ffcc; margin-bottom:10px; }
+.play-step ul { list-style:none; padding-left:0; }
+.play-step ul li { margin-bottom:8px; }
 
 /* Rewards Section */
 .rewards-cards {
@@ -206,19 +189,9 @@ section {
     transition:0.3s;
 }
 
-.reward-card:hover {
-    transform:translateY(-10px);
-}
-
-.reward-card h4 {
-    color:#00ffcc;
-    margin-bottom:10px;
-}
-
-.reward-card p {
-    font-size:14px;
-    opacity:0.8;
-}
+.reward-card:hover { transform:translateY(-10px); }
+.reward-card h4 { color:#00ffcc; margin-bottom:10px; }
+.reward-card p { font-size:14px; opacity:0.8; }
 
 /* Testimonials */
 .testimonial {
@@ -229,15 +202,8 @@ section {
     margin:10px;
 }
 
-.testimonial p {
-    font-style:italic;
-    opacity:0.8;
-}
-
-.testimonial h5 {
-    margin-top:15px;
-    color:#00ffcc;
-}
+.testimonial p { font-style:italic; opacity:0.8; }
+.testimonial h5 { margin-top:15px; color:#00ffcc; }
 
 /* FAQ */
 .faq-item {
@@ -248,9 +214,7 @@ section {
     padding-bottom:15px;
 }
 
-.faq-item h5 {
-    color:#00ffcc;
-}
+.faq-item h5 { color:#00ffcc; }
 
 /* Footer */
 footer {
@@ -258,28 +222,18 @@ footer {
     padding:50px 50px;
 }
 
-footer p {
-    opacity:0.7;
-}
+footer p { opacity:0.7; }
 
 @media (max-width:768px){
-    .hero {
-        flex-direction:column;
-        align-items:flex-start;
-    }
-    .hero-left {
-        margin-bottom:10px;
-    }
-    .play-steps, .features-cards, .rewards-cards {
-        flex-direction:column;
-        align-items:center;
-    }
+    .hero { flex-direction:column; align-items:flex-start; }
+    .hero-left { margin-bottom:10px; }
+    .play-steps, .features-cards, .rewards-cards { flex-direction:column; align-items:center; }
 }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- HERO / FIXED TOP -->
 <section class="hero">
     <div class="hero-left">
         <img src="https://i.ibb.co/hx1tn2z2/IMG-20260114-230655.jpg" alt="ZorBattle Logo">
@@ -381,7 +335,7 @@ footer p {
 <!-- FOOTER -->
 <footer>
     <p>&copy; 2026 ZorBattle | Future of Esports</p>
-    <p>Follow us on <a href="https://t.me/skillclashcare" target="_blank">Telegram</a></p>
+    <p>Follow us on <a href="https://t.me/ZorBattleSupport" target="_blank">Telegram</a></p>
 </footer>
 
 <!-- JS -->
