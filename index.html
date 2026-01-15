@@ -24,7 +24,7 @@ html, body {
     scroll-behavior: smooth;
 }
 
-/* Hero Section */
+/* HERO FIXED TOP */
 .hero {
     position: fixed;
     top:0;
@@ -46,9 +46,11 @@ html, body {
 
 .hero-left img {
     width:70px;
-    border-radius:50%;
+    height:70px;
+    border-radius:50%; /* 100% circle */
     margin-right:20px;
-    border:2px solid #00ffcc;
+    border:3px solid #00ffcc;
+    object-fit:cover;
 }
 
 .hero-left h1 {
@@ -74,7 +76,7 @@ html, body {
     text-decoration:none;
 }
 
-/* Hero Placeholder */
+/* Hero placeholder to push content down */
 .hero-placeholder {
     height:100px;
 }
@@ -282,7 +284,7 @@ footer p {
     <div class="hero-left">
         <img src="https://i.ibb.co/hx1tn2z2/IMG-20260114-230655.jpg" alt="ZorBattle Logo">
         <h1>ZorBattle</h1>
-        <a href="https://github.com/aaryansingh91/test/raw/refs/heads/main/ZorBattleV16.apk" class="download-btn">Download</a>
+        <a href="https://ZorBattle.vercel.app/ZorBattle.apk" class="download-btn">Download</a>
     </div>
 </section>
 
