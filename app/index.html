@@ -1,15 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name=viewport content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script type="text/javascript" src="experiments.js"></script>
-<script type="text/javascript" src="action.js"></script>
-<script type="text/javascript">
-fireauth.oob.OobHandler.initialize('#actionElement');
-</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZorBattle Password Reset</title>
+<style>
+body { font-family: Arial, sans-serif; background:#000; color:#fff; display:flex; flex-direction:column; align-items:center; justify-content:center; height:100vh; margin:0; }
+h2 { color:#ff3; margin-bottom:20px; }
+input { padding:10px; margin:10px 0; width:250px; border-radius:5px; border:none; }
+button { padding:10px 20px; border:none; border-radius:5px; background:#ff3; color:#000; cursor:pointer; font-weight:bold; }
+button:hover { background:#ffc; }
+#status { margin-top:15px; font-weight:bold; }
+</style>
 </head>
 <body>
-<div id="actionElement"></div>
+<h2>Reset Your ZorBattle Password</h2>
+<input type="password" id="newPassword" placeholder="Enter new password" />
+<button id="resetBtn">Reset Password</button>
+<div id="status"></div>
+
+<script type="module">
+import { getAuth, confirmPasswordReset } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+
+// Firebase auth
+const auth = getAuth();
+
+// Get oobCode & mode from URL
+const params = new URLSearchParams(window.location.search);
+const oobCode = params.get('oobCode');
+const mode = params.get('mode');
+
+const status = document.getElementById('status');
+
+if (mode !== "resetPassword" || !oobCode) {
+    status.innerText = "❌ Invalid or expired link!";
+}
+
+// Handle reset button click
+document.getElementById('resetBtn').addEventListener('click', async () => {
+    const newPassword = document.getElementById('newPassword').value;
+    if (!newPassword) {
+        status.innerText = "⚠️ Enter a new password!";
+        return;
+    }
+
+    status.innerText = "⏳ Resetting password...";
+    try {
+        await confirmPasswordReset(auth, oobCode, newPassword);
+        status.innerText = "✅ Password reset successful!";
+        setTimeout(() => window.location.href = "/login.html", 2000);
+    } catch (e) {
+        console.error(e);
+        status.innerText = "❌ Error: " + e.message;
+    }
+});
+</script>
 </body>
 </html>
