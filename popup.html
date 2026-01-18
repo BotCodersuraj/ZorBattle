@@ -38,15 +38,31 @@
         }
 
         // Database listen karna
-        database.ref('notifications').on('value', (snapshot) => {
-            const data = snapshot.val();
-            if (data && Notification.permission === "granted") {
-                new Notification(data.title, {
-                    body: data.body,
-                    icon: "https://cdn-icons-png.flaticon.com/512/3119/3119338.png"
-                });
-            }
-        });
+        // Purane code ki jagah ye update karein
+database.ref('notifications').on('value', (snapshot) => {
+    const data = snapshot.val();
+    if (data && Notification.permission === "granted") {
+        
+        // Browser ko batana ki naya message aaya hai
+        const options = {
+            body: data.body,
+            icon: "https://cdn-icons-png.flaticon.com/512/3119/3119338.png",
+            vibrate: [200, 100, 200], // Vibration add kiya
+            tag: 'zor-battle-notif' // Same tag se purana notif replace ho jayega
+        };
+
+        // Service worker ke through dikhana (zayada reliable hai)
+        if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+            navigator.serviceWorker.ready.then(reg => {
+                reg.showNotification(data.title, options);
+            });
+        } else {
+            // Normal fallback
+            new Notification(data.title, options);
+        }
+    }
+});
+
     </script>
 </body>
 </html>
