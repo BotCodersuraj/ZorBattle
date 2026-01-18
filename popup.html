@@ -2,34 +2,51 @@
 <html>
 <head>
     <title>User Panel</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        #btn { padding: 15px 30px; font-size: 18px; cursor: pointer; background: #28a745; color: white; border: none; border-radius: 5px; }
+    </style>
 </head>
-<body style="text-align: center; background: #eee;">
-    <h2>Waiting for Updates...</h2>
-    <p id="status">Notifications are active.</p>
+<body>
+    <h2>User Notification Panel</h2>
+    <p>Niche button dabao notification allow karne ke liye:</p>
+    <button id="btn" onclick="askPermission()">Enable Notifications</button>
 
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database-compat.js"></script>
 
     <script>
-        const firebaseConfig = { /* APNA CONFIG SAME YAHAN DALO */ };
+        const firebaseConfig = {
+            apiKey: "AIzaSyDSCU7uFxMBi5W3OQHb55rZz3_hXROZRdI",
+            authDomain: "zor-battle.firebaseapp.com",
+            projectId: "zor-battle",
+            databaseURL: "https://zor-battle-default-rtdb.firebaseio.com",
+            appId: "1:305211042481:web:6ebef4c35e2abd80bb9090"
+        };
         firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        // Database par nazar rakhna (Real-time listening)
+        function askPermission() {
+            Notification.requestPermission().then(perm => {
+                if (perm === "granted") {
+                    alert("Shabaash! Ab notification aayenge.");
+                    document.getElementById('btn').innerText = "Notifications Active!";
+                } else {
+                    alert("Aapne permission deny kar di. Settings se on karo.");
+                }
+            });
+        }
+
+        // Database listen karna
         database.ref('notifications').on('value', (snapshot) => {
             const data = snapshot.val();
-            if (data) {
-                showNativeNotif(data.title, data.body);
+            if (data && Notification.permission === "granted") {
+                new Notification(data.title, {
+                    body: data.body,
+                    icon: "https://cdn-icons-png.flaticon.com/512/3119/3119338.png"
+                });
             }
         });
-
-        function showNativeNotif(t, b) {
-            if (Notification.permission === "granted") {
-                new Notification(t, { body: b });
-            } else {
-                Notification.requestPermission();
-            }
-        }
     </script>
 </body>
 </html>
